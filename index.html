@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello Javascript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Enter your Username and Password</h2>
+    <div class="form">
+    <form method="GET" action="process-action.html" onsubmit = "return validateForm()">
+        <div>
+            Username:
+            <label for="username"><input type="text" name="username" id="username"/></label>
+            <br><br>
+            Password:
+            <label for="password"><input type="password" name = "password" id="password"/></label>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+
+    </form>
+</div>
+<script type = "text/javascript" src="script.js"></script>
+</body>
+</html>
