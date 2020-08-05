@@ -5,21 +5,57 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Enter your Username and Password</h2>
-    <div class="form">
-    <form method="GET" action="process-action.html" onsubmit = "return validateForm()">
+<div class="wrap">
+<form class='formWithValidation'>
+    <div>
         <div>
-            Username:
-            <label for="username"><input type="text" name="username" id="username"/></label>
-            <br><br>
-            Password:
-            <label for="password"><input type="password" name = "password" id="password"/></label>
+            <label>Username:</label>
         </div>
         <div>
-            <button type="submit">Submit</button>
+            <label>
+                <input type='text' class='username' />
+            </label>
         </div>
-
-    </form>
+    </div>
+    <div>
+        <div>
+            <label>Password:</label>
+        </div>
+        <div>
+            <input type='password' class='password' />
+        </div>
+    </div>
+    <div>
+        <div>
+            <label>Password confirmation:</label>
+        </div>
+        <div>
+            <input type='password' class='passwordConfirmation' />
+        </div>
+    </div>
+    <div>
+        <div>
+            <label>Where</label>
+        </div>
+        <div>
+            <select class='where'>
+                <option></option>
+                <option value='developers'>Developers</option>
+                <option value='managers'>Managers</option>
+                <option value='devops'>DevOps</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <div>
+            <label>Message:</label>
+        </div>
+        <div>
+            <textarea class='message'></textarea>
+        </div>
+    </div>
+    <input type='submit' class='validateBtn' value='Validate'/>
+</form>
 </div>
 <script type = "text/javascript" src="script.js"></script>
 </body>
