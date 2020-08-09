@@ -24,6 +24,6 @@ form.addEventListener('submit', function (event) {
 form.addEventListener('submit', function (e) {
     e.preventDefault();
     fields.forEach(item =>  {
-        !item.value ? console.log ('field is blank', item) : console.log(item);
+        !item.value && console.log ('field is blank', item);
     });
 });
