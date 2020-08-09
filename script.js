@@ -17,7 +17,13 @@ form.addEventListener('submit', function (event) {
     console.log('passwordConfirmation: ', passwordConfirmation.value);
     console.log('where: ', where.value);
     console.log('message: ', message.value);
-})
+});
 
-//проверим, что все поля у нас заполнены
+//проверим, что все поля у нас заполнены и если поля не заполнены выведем их в консоль
 
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    fields.forEach(item =>  {
+        !item.value ? console.log ('field is blank', item) : console.log(item);
+    });
+});
