@@ -19,12 +19,13 @@ form.addEventListener('submit', function (event) {
     //Но если мы нажмем еще раз validate, то все наши сообщения сдублируются.
     // Самый простой способ этого избежать, это удалять все ошибки с страницы при валидации.
     const errors = form.querySelectorAll('.error');
-
     errors.forEach(item => item.remove());
+
     //проверим, что все поля у нас заполнены и если поля не заполнены выведем их в консоль
     fields.forEach(item => {
         if(!item.value) {
             console.log('field is blank', item);
+
             //выведем  ошибки на форму
             //сгенерируем новый элемент и добавим к каждому полю, которое не заполнено.
             const error = document.createElement('div');
@@ -37,6 +38,11 @@ form.addEventListener('submit', function (event) {
             item.parentElement.insertBefore(error, item);
         }
     })
+
+    //Теперь давайте добавим проверку на ошибку, когда у нас не совпадают пароли.
+    // Просто напишем условие, что пароли не совпадают, а внутри создадим новый error и добавим перед паролем.
+
+
 })
 
 
