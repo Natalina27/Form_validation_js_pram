@@ -8,6 +8,8 @@ const where = form.querySelector('.where');
 const message = form.querySelector('.message');
 const fields = form.querySelectorAll('.field');
 
+
+
 //нужно повесить евент submit на нашу форму
 form.addEventListener('submit', function (event) {
 
@@ -15,19 +17,10 @@ form.addEventListener('submit', function (event) {
 
 
     //Но если мы нажмем еще раз validate, то все наши сообщения сдублируются.
-// Самый простой способ этого избежать, это удалять все ошибки с страницы при валидации.
+    // Самый простой способ этого избежать, это удалять все ошибки с страницы при валидации.
+    const errors = form.querySelectorAll('.error');
 
-
-
-
-
-
-
-
-
-
-
-
+    errors.forEach(item => item.remove());
     //проверим, что все поля у нас заполнены и если поля не заполнены выведем их в консоль
     fields.forEach(item => {
         if(!item.value) {
