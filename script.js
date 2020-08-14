@@ -42,6 +42,18 @@ form.addEventListener('submit', function (event) {
     //Теперь давайте добавим проверку на ошибку, когда у нас не совпадают пароли.
     // Просто напишем условие, что пароли не совпадают, а внутри создадим новый error и добавим перед паролем.
 
+    if (password.value !== passwordConfirmation.value) {
+        console.log('not equals')
+        const error = document.createElement('div')
+        error.className = 'error'
+        error.style.color = 'red'
+        error.innerHTML = 'Passwords doesnt match'
+        password.parentElement.insertBefore(error, password)
+    }
+
+   // Теперь хотелось бы сделать этот код понятнее, так как у сейчас его сложно читать и поддерживать.
+    // Давайте для начала создадим функцию, которая будет принимать на вход строку и возвращать DOM елемент.
+
 
 })
 
