@@ -54,6 +54,17 @@ form.addEventListener('submit', function (event) {
    // Теперь хотелось бы сделать этот код понятнее, так как у сейчас его сложно читать и поддерживать.
     // Давайте для начала создадим функцию, которая будет принимать на вход строку и возвращать DOM елемент.
 
+    const generateError = function (text) {
+        const error = document.createElement('div');
+        error.className = 'error';
+        error.style.color = 'red';
+        error.innerHTML = text;
+        return error;
+    }
+
+   // И теперь мы можем убрать повторяющийся код
+
+
 
 })
 
