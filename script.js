@@ -12,9 +12,8 @@ const fields = form.querySelectorAll('.field');
 
 //нужно повесить евент submit на нашу форму
 form.addEventListener('submit', function (event) {
-
+/*
     event.preventDefault(); //запрещает поведение по умолчанию (html по умолчанию отправляет форму и перезагружает при этом страницу)
-
 
     //Но если мы нажмем еще раз validate, то все наши сообщения сдублируются.
     // Самый простой способ этого избежать, это удалять все ошибки с страницы при валидации.
@@ -48,6 +47,7 @@ form.addEventListener('submit', function (event) {
         error.className = 'error'
         error.style.color = 'red'
         error.innerHTML = 'Passwords doesnt match'
+
         password.parentElement.insertBefore(error, password)
     }
 
@@ -62,7 +62,36 @@ form.addEventListener('submit', function (event) {
         return error;
     }
 
+
+ */
    // И теперь мы можем убрать повторяющийся код
+
+    event.preventDefault();
+
+    const generateError = function (text) {
+        const error = document.createElement('div');
+        error.className = 'error';
+        error.style.color = 'red';
+        error.innerHTML = text;
+        return error;
+    }
+
+    const errors = form.querySelectorAll('.error');
+    errors.forEach(item => item.remove());
+
+    fields.forEach(item => {
+        if(!item.value) {
+            const error = generateError(' Cannot be blank');
+            item.parentElement.insertBefore(error, item);
+        }
+    })
+
+    if (password.value !== passwordConfirmation.value) {
+        const error = generateError('Passwords doesnt match');
+        password.parentElement.insertBefore(error, password);
+    }
+
+    //Теперь давайте вынесем в отдельную функцию очистку ошибок.
 
 
 
