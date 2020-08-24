@@ -8,6 +8,14 @@ const where = form.querySelector('.where');
 const message = form.querySelector('.message');
 const fields = form.querySelectorAll('.field');
 
+const generateError = function (text) {
+    const error = document.createElement('div');
+    error.className = 'error';
+    error.style.color = 'red';
+    error.innerHTML = text;
+    return error;
+}
+
 
 
 //нужно повесить евент submit на нашу форму
@@ -67,14 +75,6 @@ form.addEventListener('submit', function (event) {
    // И теперь мы можем убрать повторяющийся код
 
     event.preventDefault();
-
-    const generateError = function (text) {
-        const error = document.createElement('div');
-        error.className = 'error';
-        error.style.color = 'red';
-        error.innerHTML = text;
-        return error;
-    }
 
     const errors = form.querySelectorAll('.error');
     errors.forEach(item => item.remove());
