@@ -93,6 +93,10 @@ form.addEventListener('submit', function (event) {
 
     //Теперь давайте вынесем в отдельную функцию очистку ошибок.
 
+    const removeValidation = function () {
+        const errors = form.querySelectorAll('.error')
+        errors.forEach(item => item.remove());
+    }
 
 
 })
