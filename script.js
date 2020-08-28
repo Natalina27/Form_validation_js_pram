@@ -1,4 +1,3 @@
-//все элементы, с которыми мы будем работать
 const form = document.querySelector('.formWithValidation');
 const validateBtn = form.querySelector('.validateBtn');
 const username = form.querySelector('.username');
@@ -8,7 +7,6 @@ const where = form.querySelector('.where');
 const message = form.querySelector('.message');
 const fields = form.querySelectorAll('.field');
 
-//функции
 const generateError = function (text) {
     const error = document.createElement('div');
     error.className = 'error';
@@ -22,7 +20,7 @@ const removeValidation = function () {
     errors.forEach(item => item.remove());
 }
 
-//вынесем проверку полей на пустоту
+// проверка полей на пустоту
 const checkFieldsPresence = function () {
     fields.forEach(item => {
         if(!item.value) {
@@ -32,17 +30,23 @@ const checkFieldsPresence = function () {
     })
 }
 
+//валидация пароля
+
+const checkPasswordMatch = function () {
+    if (password.value !== passwordConfirmation.value) {
+        const error = generateError('Passwords doesnt match');
+        password.parentElement.insertBefore(error, password);
+    }
+}
+
 form.addEventListener('submit', function (event) {
 
     event.preventDefault();
 
     removeValidation();
     checkFieldsPresence();
+    checkPasswordMatch();
 
-    if (password.value !== passwordConfirmation.value) {
-        const error = generateError('Passwords doesnt match');
-        password.parentElement.insertBefore(error, password);
-    }
 })
 
 
