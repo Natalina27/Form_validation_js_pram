@@ -1,10 +1,6 @@
 const form = document.querySelector('.formWithValidation');
-const validateBtn = form.querySelector('.validateBtn');
-const username = form.querySelector('.username');
 const password = form.querySelector('.password');
 const passwordConfirmation = form.querySelector('.passwordConfirmation');
-const where = form.querySelector('.where');
-const message = form.querySelector('.message');
 const fields = form.querySelectorAll('.field');
 
 const generateError = function (text) {
@@ -21,7 +17,7 @@ const removeValidation = function () {
 }
 
 // проверка полей на пустоту
-const checkFieldsPresence = function () {
+const checkFieldsNotEmpty = function () {
     fields.forEach(item => {
         if(!item.value) {
             const error = generateError(' Cannot be blank');
@@ -31,7 +27,6 @@ const checkFieldsPresence = function () {
 }
 
 //валидация пароля
-
 const checkPasswordMatch = function () {
     if (password.value !== passwordConfirmation.value) {
         const error = generateError('Passwords doesnt match');
@@ -44,7 +39,7 @@ form.addEventListener('submit', function (event) {
     event.preventDefault();
 
     removeValidation();
-    checkFieldsPresence();
+    checkFieldsNotEmpty();
     checkPasswordMatch();
 
 })
